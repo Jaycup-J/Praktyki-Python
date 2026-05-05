@@ -1,0 +1,120 @@
+1. Założyć konto na platformie GitLab.com
+2. Założyć repozytorium o nazwie "Praktyki Python" i sklonować repozytorium na lokalny komputer.
+3. Rozwiązać niżej wymienione zadania. Każde zadanie umieścić w osobnym folderze i wysłać do repozytorium Git na serwerze GitHub.
+
+Zad.1: 
+Wypisz liczby od 1 do 100, przy czym liczby podzielne przez 3 zastąp słowem ‘Fizz’, liczby podzielne przez 5, zastąp słowem ‘Buzz’, natomiast liczby podzielne i przez 3 i przez 5 zastąp słowem ‘FizzBuzz’.
+
+
+Zad.2:
+Przy użyciu języka Python, należy znaleźć najmniejszą oraz największa liczbę na liście.
+
+Czyli, dla przykładu, jeżeli nasza lista to:
+
+	lista = [1,4,-4,7]
+
+To najmniejsza liczba wynosi -4, natomiast największa 7.
+
+
+Zad.3.:
+Mamy podany ciąg S. Np „Ala ma kota”. W ramach zadania możemy zostać poproszeni o jedno, lub więcej z poniższych:
+
+1. zliczyć wyrazy. W naszym przypadku będzie ich 3
+
+2. zliczyć litery. Będzie ich 9
+
+3. zbadać częstotliwość występowania liter. a – 3, l – 1, m 1, k – 1, t – 1
+
+
+Zad.4.:
+Mamy podaną listę liczb. Np. A = [2,1,5,3,6]. Należy posortować ją rosnąco, za pomocą algorytmu bąbelkowego.
+
+Sortowanie bąbelkowe: jest to prosta i najbardziej znana metoda sortowania. Polega ona na:
+
+    ’przejściu’ przez poszczególne elementy list, np za pomocą pętli 'for’,
+    sprawdzeniu czy element następny na liście, jest mniejszy. Jeżeli tak, zastąpieniu ich miejscami.
+    Powtarzamy czynność, dla kolejnego elementu i sprawdzamy czy kolejny jest mniejszy. Jeżeli tak, to zamieniamy miejscami, itd
+    W momencie, kiedy dojdziemy do końca listy, na jej końcu powinna znajdować się największa liczba z listy,
+    Następnie powtarzamy naszą pętlę 'for’, zaczynając od początku.
+    kończymy wtedy, gdy wykonamy interakcję bez zmiany kolejności żadnego elementu
+
+Przykład:
+
+Iteracja 1: [2,0,5,1,6,3] (0<2) – > [0,2,5,1,6,3](5>2) → [0,2,5,1,6,3](1<5) → [0,2,1,5,6,3] (6>5)→[0,2,1,5,6,3](3<6) -> [0,2,1,5,3,6]
+
+Iteracja 2: [0,2,1,5,3,6] (1<2) → [0,1,2,5,3,6] (5>2) → [0,1,2,5,3,6] (3<5) → [0,1,2,3,5,6] (6>5) → [0,1,2,3,5,6]
+
+Iteracja 3: [0,1,2,3,5,6] /// algorytm wykonuje finalną iterację, po czym kończy działanie
+
+Praktyczna porada:
+
+Czasami takie zadania, są bardzo trudne do rozwiązania 'w głowie’, natomiast stają się proste, jak tylko weźmiemy kartkę i długopis, po czym sobie cały ten proces z wizualizujemy. Samodzielnie:) 
+
+
+Zad.5.:
+Zbadaj czy na liście licz A, znajdują się dwie liczby – a i b, których suma wynosi liczbę L.
+
+Czyli przykładowo, mamy podaną listę A = [1,3,5,2,11,7] . Należy sprawdzić czy suma, którychkolwiek liczb na liście wynosi 9. W tym prostym przykładnie już ‘na oko’ widzimy że będą to liczby 2 oraz 7. No dobrze, ale zastanówmy się jak mógłby wyglądać nasz algorytm.
+
+Rozwiązanie 1 – najprostsze.
+
+1. Przeszukujemy listę, za pomocą pętli For.
+
+2. Dla każdej liczby z listy, powtarzamy przeszukiwanie całego łańcucha i sprawdzamy czy jest w nim liczba, która po zsumowaniu wynosi tyle co nasza liczba L.
+
+3. Po znalezieniu, przerywamy.
+
+Tak samo jak w sortowaniu bąbelkowym, mamy tutaj do czynienia, z pętlami zagnieżdżonymi.
+
+
+Zad.6:
+Wyszukiwanie binarne, to algorytm mający na celu sprawdzenie czy podany element znajduje się na posortowanej liście liczb oraz wskazanie jego miejsca. Działa w czasie logarytmicznym co nabiera znaczenia w przypadku dużych zbiorów danych.
+
+Aby sprawdzić czy liczba L znajduje się w 1000 elementowej liście, przy zastosowaniu standardowej pętli typu For, w najgorszym przypadku potrzebujemy 1000 iteracji. Po prostu, musieli byśmy sprawdzać element po elemencie.
+
+Z użyciem algorytmu wyszukiwania binarnego, 10.
+
+Dla tablicy 1 000 000 elementów, pętla For potrzebuje w najgorszym przypadku 1 000 000 iteracji, algorytm wyszukiwania binarnego, 20.
+
+Tak jak widzimy różnica jest olbrzymia. Jak ją osiągnąć?
+
+Fundamenty działania algorytmu:
+
+   - zbiór jest posortowany, w naszym przypadku, lista liczb
+   - algorytm dzieli ją na dwie równe listy
+   - sprawdza czy znalazł szukaną liczbę. Jeżeli nie, to sprawdza w który zbiór zawiera zakres liczb poszukiwanych. Czyli jeżeli widzi, że w zbiorze na lewo są liczby mniejsze, to nie zajmuje się szukaniem w tym zbiorze, tylko sprawdza zbiór
+   - znowu, dzieli go na 2 równie zbiory
+   - znowu sprawdza czy znalazł, znowu szukaną liczbę, dzieli zbiór itd.
+
+Praktyczna porada:
+
+Jest to kolejne zadanie, które jest o wiele łatwiejsze, jeżeli zanim zaczniemy programować, rozrysujemy je na kartce.
+
+
+Zad.7.:
+Zadaniem jest napisać program, grający z użytkownikiem w rzut monetą.
+
+Działanie programu powinno być zbliżone do następującego:
+
+   1. Użytkownik wybiera czy obstawia resztę, czy orła (literka r – reszka, literka o – orzeł)
+   2. Po dokonaniu wybory, Komputer odlicza 3,2,1, a następnie dokonuje 'rzutu’, czyli losowego wyboru orzeł / reszka.
+   3. Komputer wyświetla wynik rzutu.
+   4. Jeżeli wygrał użytkownik, to dodaje punkt dla użytkownika, jeżeli komputer to dodaje punkt dla komputera.
+   5. Wyświetla wyniki
+   6. Wracamy do punktu 1. 
+
+Wskazówki
+   -  Działanie programu powinno kończyć się po podaniu w punkcie 1, cyfry 0.
+   -  Wczytanie wyboru użytkownika, może odbyć się przy pomocy funkcji input(), która zwraca podany przez użytkownika ciąg znaków
+
+x = input()
+
+   -  Odliczamy 3,2,1 za pomocą pętli for, natomiast pomiędzy liczbami, możemy wprowadzić opóźnienia, za pomocą biblioteki time
+
+import time
+time.sleep(1)
+
+    Losowy wybór reszka / orzeł, może odbyć się przy użyciu funkcji random, tak jak poniżej
+
+import random
+random.choice(["orzeł", "reszka"])
